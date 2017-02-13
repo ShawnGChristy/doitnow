@@ -17,6 +17,12 @@ end
     redirect_to todos_url
   end
 
+  def complete
+    
+    @todo.update_attribute(:completed_at, Time.now)
+    redirect_to todos_url, notice: "Todo completed"
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_todo

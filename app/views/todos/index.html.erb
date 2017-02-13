@@ -12,6 +12,7 @@
         <tbody>
           <% @todos.each do |todo| %>
           <tr>
+            <td scope="row"><%= link_to "Mark as Complete", complete_todo_path(todo), method: :patch %>
             <td scope="row"><%= todo.name %></td>
             <td scope="row"><%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
