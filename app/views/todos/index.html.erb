@@ -12,9 +12,15 @@
         <tbody>
           <% @todos.each do |todo| %>
           <tr>
-            <td scope="row"><%= link_to "Mark as Complete", complete_todo_path(todo), method: :patch %>
+            <% if todo.completed? %>
+              <td scope="row"> <i class="fa fa-check-square-o"></i> </td>
+            <% else %>
+              <td scope="row"><%= link_to complete_todo_path(todo), method: :patch do %><i class="fa fa-square-o" ></i>
+                <% end %> </td>
+            <% end %>
             <td scope="row"><%= todo.name %></td>
-            <td scope="row"><%= link_to 'Delete', todo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td scope="row"><%= link_to todo, method: :delete, data: { confirm: 'Are you sure?' } do %> <i class="fa fa-trash-o"></i>
+       <% end %></td>
           </tr>
           <% end %>
         </tbody>
@@ -22,7 +28,7 @@
     </div>
     
     <%= form_for(@todo) do |f| %>
-      <%= f.text_field :name, class: "form-control" %>
+      <%= f.text_field :name, placeholder:"Add a New Todo", class: "form-control" %>
       <div style="margin-top: 1em;">
         <%= f.submit "Create", class: "btn btn-primary" %>
       </div>
