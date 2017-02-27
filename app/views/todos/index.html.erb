@@ -18,7 +18,8 @@
               <td scope="row"><%= link_to complete_todo_path(todo), method: :patch do %><i class="fa fa-square-o" ></i>
                 <% end %> </td>
             <% end %>
-            <td scope="row"><%= todo.name %></td>
+            <td scope="row"><div class="todo-item"><%= todo.name %></div></td>
+            <td scope="row"> <%= link_to "edit", "#", id: "todos-link" %> <i class="fa fa-pencil-square-o"></i> </td>
             <td scope="row"><%= link_to todo, method: :delete, data: { confirm: 'Are you sure?' } do %> <i class="fa fa-trash-o"></i>
        <% end %></td>
           </tr>
