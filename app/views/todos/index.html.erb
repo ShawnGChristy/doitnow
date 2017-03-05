@@ -19,7 +19,7 @@
                 <% end %> </td>
             <% end %>
             <td scope="row"><div class="todo-item"><%= todo.name %></div></td>
-            <td scope="row"> <%= link_to "edit", "#", id: "todos-link" %> <i class="fa fa-pencil-square-o"></i> </td>
+            <td scope="row">  <i class="fa fa-pencil-square-o"></i> </td>
             <td scope="row"><%= link_to todo, method: :delete, data: { confirm: 'Are you sure?' } do %> <i class="fa fa-trash-o"></i>
        <% end %></td>
           </tr>
@@ -36,3 +36,5 @@
     <% end %>
   </div>
 </div>
+
+<%= link_to "edit", id: "todos-link" %>
