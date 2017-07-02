@@ -1,10 +1,10 @@
 class TodosController < ApplicationController
-  
-  before_action :all_tasks, only: [:index, :create, :update]
-  before_action :set_task, only: [:edit, :update, :destroy]
+
+  before_action :all_todos, only: [:index, :create, :update]
+  before_action :set_todo, only: [:edit, :update, :destroy]
 
   def update
-     @task.update(task_params) 
+     @todo.update(todo_params) 
   end
 
   def index
